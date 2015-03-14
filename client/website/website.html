@@ -1,19 +1,47 @@
 <template name="website">
-  <div class="ui page padded grid">
-    <div class="row">
-      <nav class="ui inverted borderless pointing large menu">
-        <a class="left header item">&#2310;&#2325;&#2366;&#2358;</a>
-        <!-- &#256;k&#257;&#347;a  -->
-        <div class="right menu">
-          <a href="" class="active item">About</a>
-          <a href="" class="item">Dashboard</a>
-          <a href="" class="item">Contact</a>
-          {{> atNavButton}}
-        </div>
-      </nav>
+  <div class="ui three columns stackable center aligned relaxed padded page grid">
+
+    <div class="sixteen wide column">
+      <div class="ui inverted pointing large menu">
+          <a href="" class="left header active item">&#2310;&#2325;&#2366;&#2358;</a>
+          <a href="" class="right item">Log in</a>
+      </div>
     </div>
-    <div class="row">
-      {{> yield}}
+
+    {{> yield}}
+
+    <div class="sixteen wide column">
+      <div class="ui inverted small menu">
+        <a href="" class="item">Etc</a>
+      </div>
     </div>
+
+    <!--<div class="column">
+      <div class="ui header">Courses</div>
+      <div class="ui link list">
+        <a class="item">Registration</a>
+        <a class="item">Course Calendar</a>
+        <a class="item">Professors</a>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="ui header">Courses</div>
+      <div class="ui link list">
+        <a class="item">Registration</a>
+        <a class="item">Course Calendar</a>
+        <a class="item">Professors</a>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="ui header">Courses</div>
+      <div class="ui link list">
+        <a class="item">Registration</a>
+        <a class="item">Course Calendar</a>
+        <a class="item">Professors</a>
+      </div>
+    </div>-->
+
   </div>
 </template>

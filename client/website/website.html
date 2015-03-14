@@ -1,0 +1,19 @@
+<template name="website">
+  <div class="ui page padded grid">
+    <div class="row">
+      <nav class="ui inverted borderless pointing large menu">
+        <a class="left header item">&#2310;&#2325;&#2366;&#2358;</a>
+        <!-- &#256;k&#257;&#347;a  -->
+        <div class="right menu">
+          <a href="" class="active item">About</a>
+          <a href="" class="item">Dashboard</a>
+          <a href="" class="item">Contact</a>
+          {{> atNavButton}}
+        </div>
+      </nav>
+    </div>
+    <div class="row">
+      {{> yield}}
+    </div>
+  </div>
+</template>

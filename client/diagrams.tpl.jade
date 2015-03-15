@@ -1,0 +1,29 @@
+script.
+  $(document.body).addClass('pushable')
+
+.ui.left.vertical.inverted.labeled.icon.thin.visible.sidebar.menu
+  a.item
+    i.home.icon
+    | Home
+  a.item
+    i.plus.icon
+    | Add diagram
+
+.ui.right.vertical.inverted.labeled.icon.thin.visible.sidebar.menu
+  a.item
+    i.plus.icon
+    | Create cell
+  a.item
+    i.minus.icon
+    | Remove cell
+
+.ui.top.fixed.inverted.menu
+  a.item.left Home
+  a.item.right Edit
+
+.pusher
+  each diagramInQuery
+    +diagram
+
+.ui.bottom.fixed.inverted.menu
+  a.item.center Mao

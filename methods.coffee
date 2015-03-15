@@ -1,15 +1,25 @@
 Meteor.methods
-  createCell: (id, x, y) ->
+  createCell: (id, x, y, s, t) ->
     #if (!Meteor.userId())
     #  throw new Meteor.Error("not-authorized")
     Cells.insert
       diagramId: id
       posx: x
       posy: y
-  selectCell: (id) ->
-    Cells.update id,
-      $inc:
-        selected: 1
+      source: s
+      target: t
+  toggleCell: (c) ->
+    s = Diagrams.findOne
+      _id: c.diagramId
+      selection: c._id
+    if s
+      Diagrams.update c.diagramId,
+        $pull:
+          selection: c._id
+    else
+      Diagrams.update c.diagramId,
+        $push:
+          selection: c._id
   moveCell: (id, x, y) ->
     Cells.update id,
       $set:
@@ -23,6 +33,3 @@ Meteor.methods
       name: name or "New diagram"
       editors: [Meteor.userId()]
       viewers: []
-
-#  getUser: (id) ->
-#    Meteor.

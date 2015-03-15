@@ -1,5 +1,6 @@
 Template.editor.helpers
 
+
   editableDiagrams: () ->
     query = {}
     query.editors = {$all: [Meteor.userId()]}
@@ -27,3 +28,11 @@ Template.editor.gestures
   'tap .new-diagram-button': () ->
     Meteor.call("createDiagram")
     #Router.go 'diagram', i
+
+  'tap .new-cell-button': () ->
+    s = Cells.find
+      diagramId: @_id
+      selected:
+        $mod: [2, 1]
+    s.forEach (c) ->
+      console.log c._id

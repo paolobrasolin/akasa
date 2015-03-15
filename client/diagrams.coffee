@@ -1,0 +1,2 @@
+Template.diagrams.helpers
+  diagramInQuery: () -> @

@@ -29,12 +29,27 @@ Router.map () ->
   @route 'home',
     layoutTemplate: 'website'
     path: '/'
-
+  ###
   @route 'diagram',
     layoutTemplate: 'editor'
     path: '/diagrams/:_id'
     data: () ->
       Diagrams.findOne(@params._id)
+  ###
+
+  @route 'diagrams',
+    layoutTemplate: ''
+    path: '/diagrams/:_ids'
+    data: () ->
+      #console.log (@params._ids.split(","))
+      Diagrams.find
+        _id:
+          $in: @params._ids.split(",")
+    onBeforeAction: () ->
+      Session.set "view", (@params._ids.split(","))
+      v = Session.get "view"
+      console.log v
+      @next()
 
   @route 'user',
     layoutTemplate: ''

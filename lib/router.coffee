@@ -24,6 +24,9 @@
   #Router.onBeforeAction 'dataNotFound',
   #  except: ['join', 'signin']
 
+sanitizeIds = (query, collection) ->
+  _.filter query.split(","), (x) -> collection.findOne({_id:x})
+
 Router.map () ->
 
   @route 'home',
@@ -42,13 +45,15 @@ Router.map () ->
     path: '/diagrams/:_ids'
     data: () ->
       #console.log (@params._ids.split(","))
+      #_.map sanitizeIds(@params._ids, Diagrams), (x) -> Diagrams.find({_id:x})
       Diagrams.find
         _id:
           $in: @params._ids.split(",")
     onBeforeAction: () ->
+      Session.set "viewports", []
+      @data().forEach ()->Session.get("viewports").push("NU")
+      console.log (@data().fetch())
       Session.set "view", (@params._ids.split(","))
-      v = Session.get "view"
-      console.log v
       @next()
 
   @route 'user',

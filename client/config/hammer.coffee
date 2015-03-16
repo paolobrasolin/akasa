@@ -2,5 +2,6 @@ $(document).ready () ->
   hammer = $('body').data('hammer')
   hammer.set
     preventDefault: true
-  hammertime.get('pan').set
+  hammer.get('pan').set
+    pointers: 1
     threshold: 0

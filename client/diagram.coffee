@@ -1,3 +1,16 @@
+###
+  minX: (id) ->
+    Cells.findOne({diagramId: id}, {sort: {posx: 1}}).posx
+  maxX: (id) ->
+    Cells.findOne({diagramId: id}, {sort: {posx: -1}}).posx
+  minY: (id) ->
+    Cells.findOne({diagramId: id}, {sort: {posy: 1}}).posy
+  maxY: (id) ->
+    Cells.findOne({diagramId: id}, {sort: {posy: -1}}).posy
+###
+
+
+
 Template.diagram.helpers
   cellInDiagram: () ->
     Cells.find
@@ -7,15 +20,18 @@ Template.diagram.helpers
 
 Template.diagram.gestures
 
-  'tap svg': (event,template) ->
+  'tap .diagram': (event,template) ->
     #targetClassList = event.target.classList.toString()
     #point = event.center
     #nux = point.x - $("svg").offset().left
     #nuy = point.y - $("svg").offset().top
-    console.log "TAP!"
-    console.log @
-    console.log event
-    console.log template
+    #console.log "TAP!"
+    #console.log @
+    #console.log event
+    #console.log template
+    Session.set "ACTIVE_DIAGRAM", @diagramId or @_id
+    Meteor.call("emptySelection", @_id)
+
 
   'doubletap svg': (event, template) ->
     targetClassList = event.target.classList.toString()
@@ -24,4 +40,4 @@ Template.diagram.gestures
       origin = $("#"+@_id).offset()
       nux = point.x - origin.left
       nuy = point.y - origin.top
-      Meteor.call("createCell", @_id, nux, nuy, null, null)
+      Meteor.call("createCell", @_id, 0, null, null, nux, nuy)

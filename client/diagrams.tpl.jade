@@ -1,7 +1,9 @@
 script.
   $(document.body).addClass('pushable')
 
-.ui.left.vertical.inverted.labeled.icon.thin.visible.sidebar.menu
+//.ui.left.vertical.inverted.labeled.icon.thin.visible.overlay.sidebar.menu
+  .header.item
+    | Dashboard
   a.item
     i.home.icon
     | Home
@@ -9,21 +11,32 @@ script.
     i.plus.icon
     | Add diagram
 
-.ui.right.vertical.inverted.labeled.icon.thin.visible.sidebar.menu
-  a.item
+.ui.right.vertical.inverted.thin.visible.overlay.sidebar.menu
+  .header.item
+    | Diagram menu
+  a#connectButton.item(class=connectButtonDisabledClass)
     i.plus.icon
-    | Create cell
-  a.item
+    | Connect
+  a.item(class=composeButtonDisabledClass)
+    i.circle.icon
+    | Compose
+  a#eraseButton.item(class=eraseButtonDisabledClass)
     i.minus.icon
-    | Remove cell
+    | Erase
+  .ui.inverted.vertical.menu
+    .item.header
+      | Selected cells
+    each selectedCells
+      .item {{this}}
 
-.ui.top.fixed.inverted.menu
+
+//.ui.top.fixed.inverted.small.menu
   a.item.left Home
   a.item.right Edit
 
-.pusher
+//.ui.bottom.fixed.inverted.small.menu
+  a.item.center Status
+
+.pusher.dashboard
   each diagramInQuery
     +diagram
-
-.ui.bottom.fixed.inverted.menu
-  a.item.center Mao

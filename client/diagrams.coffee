@@ -33,6 +33,8 @@ Template.diagrams.helpers
     "disabled"
   eraseButtonDisabledClass: () ->
     "disabled" unless selectionIsntEmpty()
+  connectionStatus: () ->
+    Meteor.status().status
 
 
 Template.diagrams.gestures

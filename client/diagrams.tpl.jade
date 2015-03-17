@@ -28,6 +28,11 @@ script.
       | Selected cells
     each selectedCells
       .item {{this}}
+  .ui.inverted.vertical.menu
+    .item.header
+      | Meteor status
+    .item
+      {{connectionStatus}}
 
 
 //.ui.top.fixed.inverted.small.menu

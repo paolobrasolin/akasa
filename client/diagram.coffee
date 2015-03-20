@@ -12,9 +12,14 @@
 
 
 Template.diagram.helpers
+  styleString: () ->
+    "width:"+@size.x*100+"%;"+
+      "height:"+@size.y*100+"%;"+
+      "left:"+@position.x*100+"%;"+
+      "top:"+@position.y*100+"%;"
   cellInDiagram: () ->
     Cells.find
-      diagramId: @_id
+      diagramId: @content._id
   probe: () ->
   	console.log @
 

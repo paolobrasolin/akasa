@@ -1,20 +1,66 @@
-linterp = (a, b, t) ->
-  a+(b-a)*t
+class Point
+  constructor: (x, y) ->
+    @x = x or 0
+    @y = y or 0
+  add: (q) -> @x += q.x; @y += q.y; @
+  sub: (q) -> @x -= q.x; @y -= q.y; @
+  mul: (k) -> @x *= k;   @y *= k;   @
+  div: (k) -> @x /= k;   @y /= k;   @
+
+linterp = (i, f, t) ->
+  p = new Point
+  p.add(f).sub(i).mul(t).add(i)
+
+class QuadraticBezier
+  constructor: (i, f, c) ->
+    @i = i
+    @f = f
+    @c = c #or i.add(f).div(2)
+  _il: (t) -> linterp(@i, @c, t)
+  _fl: (t) -> linterp(@c, @f, t)
+  parametric: (t) ->
+    linterp(@_il(t), @_fl(t), t)
+  setMidpoint: (p) ->
+    @c = p.mul(4).sub(@i).sub(@f).div(2)
+    @
+  cutAfter: (t) ->
+    @f = @parametric(t)
+    @c = @_il(t)
+    @
+
+  cutBefore: (t) ->
+    @i = @parametric(t)
+    @c = @_fl(t)
+    @
+
+  svgString: () ->
+    "M"+@i.x+" "+@i.y+"Q"+
+        @c.x+" "+@c.y+" "+
+        @f.x+" "+@f.y
 
 
 
+###
+norm = (v) ->
+  Math.sqrt(Math.pow(v.x,2)+Math.pow(v.y,2))
+
+diff = (p, q) ->
+  x: p.x-q.x
+  y: p.y-q.y
+
+vec = (i, f) ->
+  diff(f, i)
+
+dist = (i, f) ->
+  norm(vec(i, f))
 
 
-# linearly invert to obtain control point from midtangent
-tcp = (i, p, f) ->
-  (4*p-i-f)/2
+cross = (v, w) ->
+  v.x*w.y-v.y*w.x
 
-ofs = (ix, iy, l, fx, fy) ->
-  d = Math.sqrt(Math.pow(fx-ix,2)+Math.pow(fy-iy,2))
-  p =
-    x: ix+l*(fx-ix)/d
-    y: iy+l*(fy-iy)/d
-
+dot = (v, w) ->
+  v.x*w.x+v.y*w.y
+###
 
 Template.cell.helpers
   selectedClass: () ->
@@ -25,36 +71,47 @@ Template.cell.helpers
 
 
   cellPath: () ->
+
     if @order is 0
-      "M"+@posx+" "+@posy+"L"+@posx+" "+@posy
+      "M"+@x+" "+@y+"L"+@x+" "+@y
+
     else if @order is 1
       s = Cells.findOne
         _id: @source
       t = Cells.findOne
         _id: @target
-      tcpx = tcp(s.posx, @posx, t.posx)
-      tcpy = tcp(s.posy, @posy, t.posy)
-      ofss = ofs(s.posx, s.posy, 50, tcpx, tcpy)
-      ofst = ofs(t.posx, t.posy, 50, tcpx, tcpy)
-      qcpx = tcp(ofss.x, @posx, ofst.x)
-      qcpy = tcp(ofss.y, @posy, ofst.y)
-      "M"+ofss.x+" "+
-          ofss.y+"Q"+
-          qcpx+" "+
-          qcpy+" "+
-          ofst.x+" "+
-          ofst.y
+
+      sp = new Point s.x, s.y
+      cp = new Point @.x, @.y
+      tp = new Point t.x, t.y
+
+      new QuadraticBezier sp, tp
+        .setMidpoint(cp)
+        .cutBefore(0.2)
+        .cutAfter(0.8)
+        .svgString()
+
     else if @order is 2
-      ""
+      s = Cells.findOne
+        _id: @source
+      t = Cells.findOne
+        _id: @target
+
+      sp = new Point s.x, s.y
+      cp = new Point @.x, @.y
+      tp = new Point t.x, t.y
+
+      new QuadraticBezier sp, tp
+        .setMidpoint(cp)
+        .cutBefore(0.2)
+        .cutAfter(0.8)
+        .svgString()
 
 
-  #probe: () ->
-  #  console.log ($(this).parent())
-  #  console.log @
-###
-  cellId: () ->
-    @_id
-###
+
+
+
+
 Template.cell.gestures
   'tap .cell.tactile': () ->
     console.log @

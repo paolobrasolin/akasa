@@ -15,3 +15,5 @@ useraccounts:semantic-ui
 accounts-password
 mquandalle:jade
 ecwyne:mathjs
+autopublish
+insecure

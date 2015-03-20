@@ -30,8 +30,8 @@ Meteor.methods
     #  throw new Meteor.Error("not-authorized")
     Cells.insert
       diagramId: id
-      posx: x
-      posy: y
+      x: x
+      y: y
       order: k
       source: s
       target: t
@@ -52,6 +52,7 @@ Meteor.methods
         $push:
           selection: c._id
   moveCell: (id, x, y) ->
+    ###
     j = Cells.findOne
       _id: id
     i = {}
@@ -78,13 +79,13 @@ Meteor.methods
         $set:
           posx: q.x
           posy: q.y
-
+    ###
 
 
     Cells.update id,
       $set:
-        posx: x
-        posy: y
+        x: x
+        y: y
   deleteCell: (id) ->
     Cells.remove id
   deleteCells: (idl) ->

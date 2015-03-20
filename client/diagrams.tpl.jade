@@ -23,16 +23,16 @@ script.
   a#eraseButton.item(class=eraseButtonDisabledClass)
     i.minus.icon
     | Erase
-  .ui.inverted.vertical.menu
+  .ui.inverted.vertical.fluid.menu
     .item.header
       | Selected cells
     each selectedCells
       .item {{this}}
-  .ui.inverted.vertical.menu
+  .ui.inverted.vertical.fluid.menu
     .item.header
       | Meteor status
     .item
-      {{connectionStatus}}
+      | {{connectionStatus}}
 
 
 //.ui.top.fixed.inverted.small.menu
@@ -43,5 +43,5 @@ script.
   a.item.center Status
 
 .pusher.dashboard
-  each diagramInQuery
+  each diagramInLayout
     +diagram

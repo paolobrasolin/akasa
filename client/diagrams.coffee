@@ -23,7 +23,8 @@ selectionIsntEmpty = () ->
 
 
 Template.diagrams.helpers
-  diagramInQuery: () -> @
+  diagramInLayout: () -> @
+  
   selectedCells: () ->
     currentSelectionIds()
 
@@ -45,8 +46,8 @@ Template.diagrams.gestures
     k = 1+sel[0].order
     s = sel[0]._id
     t = sel[1]._id
-    x = (sel[0].posx+sel[1].posx)/2
-    y = (sel[0].posy+sel[1].posy)/2
+    x = (sel[0].x+sel[1].x)/2
+    y = (sel[0].y+sel[1].y)/2
     Meteor.call("createCell", id, k, s, t, x, y)
 
   'tap #eraseButton': () ->

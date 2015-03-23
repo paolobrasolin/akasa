@@ -22,7 +22,7 @@ selectionIsntEmpty = () ->
   currentSelection().length isnt 0
 
 
-Template.diagrams.helpers
+Template.editor.helpers
   diagramInLayout: () -> @
   
   selectedCells: () ->
@@ -38,9 +38,9 @@ Template.diagrams.helpers
     Meteor.status().status
 
 
-Template.diagrams.gestures
+Template.editor.gestures
 
-  'tap #connectButton': () ->
+  'tap #createButton': () ->
     id = currentDiagramId()
     sel = currentSelection()
     k = 1+sel[0].order
@@ -50,7 +50,7 @@ Template.diagrams.gestures
     y = (sel[0].y+sel[1].y)/2
     Meteor.call("createCell", id, k, s, t, x, y)
 
-  'tap #eraseButton': () ->
+  'tap #deleteButton': () ->
     id = currentDiagramId()
     sel = currentSelectionIds()
     Meteor.call("deleteCells", sel)

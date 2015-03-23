@@ -1,90 +1,160 @@
-<template name="home">
+<template name="old">
 
-    <div class="sixteen wide column">  
-      <div class="ui massive inverted message">
-        <!--<div class="ui inverted header">&#256;k&#257;&#347;a</div>-->
-        <div class="ui image">
-          <img src="logo.png"> 
+<nav class="white" role="navigation">
+  <div class="nav-wrapper container">
+    <a id="logo-container" href="#" class="brand-logo">Logo</a>
+    <ul class="right">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="side-nav">
+      <li><a href="#">Navbar Link</a></li>
+    </ul>
+    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+  </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+  <div class="parallax"><img src="background1.jpg" alt="Unsplashed background img 2"></div>
+</div>
+
+
+<div class="container">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="mdi-image-flash-on"></i></h2>
+          <h5 class="center">Speeds up development</h5>
+
+          <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
         </div>
-        <p>Commutative. Diagrams.</p>
-        <a class="ui green button">Sign up.</a>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="mdi-social-group"></i></h2>
+          <h5 class="center">User Experience Focused</h5>
+
+          <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h2 class="center brown-text"><i class="mdi-action-settings"></i></h2>
+          <h5 class="center">Easy to work with</h5>
+
+          <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+        </div>
       </div>
     </div>
 
+  </div>
+</div>
 
-    <div class="sixteen wide column">
-      <div class="ui horizontal header divider">Need more reasons?</div>
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
     </div>
+  </div>
+  <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 2"></div>
+</div>
 
+<div class="container">
+  <div class="section">
 
-    <div class="column">
-      <div class="ui icon header"><i class="paint brush icon"></i>Extrication</div>
-      <p>Graphite and chalk resist change.<br>I flow.<br>Ink is for Hitsuzendō.</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="puzzle icon"></i>Abetment</div>
-      <p>Strict 2 categories.<br>I know and handle the calculus.</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="users icon"></i>Synergetic</div>
-      <p>It is by design a realtime collaborative environment. Instantaneous. Multiuser. Yup.</p>
-    </div>
-
-
-    <div class="column">
-      <div class="ui icon header"><i class="comments icon"></i>Witful</div>
-      <p>LaTeX enabled chat, so you can show off your mad skillz and maybe even manage to say something.</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="lock icon"></i>Stealthy</div>
-      <p>Arbitrary privacy settings: keep it to your team or let anyone edit. Or show a class but don't let them touch!</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="cloud icon"></i>Cloudly</div>
-      <p>Everything in the cloud, so you can work anywhere you fancy. Smart conflict resolution allows to work even offline.</p>
-    </div>
-
-
-    <div class="sixteen wide column">
-      <div class="ui horizontal header divider">and</div>
-    </div>
-
-
-    <div class="column">
-      <div class="ui icon header"><i class="file icon"></i>Friendly</div>
-      <p>Exports to LaTeX.<br>It exports to LaTeX!</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="mobile icon"></i>Portable</div>
-      <p>It just works on any platform and device endowed with a browser. We got apps too!</p>
-    </div>
-
-    <div class="column">
-      <div class="ui icon header"><i class="university icon"></i>Snarky</div>
-      <p>Made by a bohemian.<br>Because fuck you, that's why.</p>
-    </div>
-
-
-    <div class="sixteen wide column">
-      <div class="ui horizontal header divider">So. What'll be?</div>
-    </div>
-
-
-    <div class="sixteen wide column">
-      <div class="ui buttons">
-        <a class="ui blue button">Try out</a>
-        <div class="or"></div>
-        <a class="ui green button">Sign up</a>
-        <div class="or"></div>
-        <a class="ui orange button">Get app</a>
+    <div class="row">
+      <div class="col s12 center">
+        <h3><i class="mdi-content-send brown-text"></i></h3>
+        <h4>Contact Us</h4>
+        <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
       </div>
     </div>
 
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      </div>
+    </div>
+  </div>
+  <div class="parallax"><img src="background2.jpg" alt="Unsplashed background img 3"></div>
+</div>
+
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+(function($){
+  $(function(){
+
+    $('.button-collapse').sideNav();
+    $('.parallax').parallax();
+
+  }); // end of document ready
+})(jQuery); // end of jQuery name space
+</script>
 
 
 </template>

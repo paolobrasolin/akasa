@@ -5,15 +5,14 @@
 # but you can also edit it by hand.
 
 meteor-platform
-less
 iron:router
 coffeescript
 chriswessels:hammer
-semantic:ui-css
 msavin:mongol
-useraccounts:semantic-ui
 accounts-password
 mquandalle:jade
-ecwyne:mathjs
 autopublish
 insecure
+less
+useraccounts:materialize
+materialize:materialize

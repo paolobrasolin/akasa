@@ -72,7 +72,7 @@ sanitizeIds = (query, collection) ->
 Router.map () ->
 
   @route 'home',
-    layoutTemplate: 'website'
+    layoutTemplate: ''
     path: '/'
   ###
   @route 'diagram',
@@ -82,17 +82,30 @@ Router.map () ->
       Diagrams.findOne(@params._id)
   ###
 
-  @route 'diagrams',
+  @route 'blackboard',
     layoutTemplate: ''
-    path: '/diagrams/:_ids'
+    path: '/blackboards/:_id'
     data: () ->
-      layout = parseLayout @params._ids
-      for viewport, i in layout
-        layout[i].content = Diagrams.findOne _id: viewport.content
-      layout
-    onBeforeAction: () ->
-      Session.set "layout", parseLayout @params._ids
-      @next()
+      Blackboards.findOne(@params._id)
+
+  @route 'dashboard',
+    layoutTemplate: ''
+    path: '/-/'
+    data: () ->
+      null
+
+
+  @route 'diagrams',
+    template: 'diagram'
+    layoutTemplate: 'editor'
+    path: '/diagrams/:_id'
+    data: () ->
+      Diagrams.findOne
+        _id: @params._id
+
+
+
+
 
   @route 'user',
     layoutTemplate: ''
@@ -116,3 +129,16 @@ Router.map () ->
         #dataReadyHold.release()
     #action: () ->
     #  @render()
+
+
+
+
+###
+layout = parseLayout @params._ids
+for viewport, i in layout
+  layout[i].content = Diagrams.findOne _id: viewport.content
+layout
+onBeforeAction: () ->
+  Session.set "layout", parseLayout @params._ids
+  @next()
+###

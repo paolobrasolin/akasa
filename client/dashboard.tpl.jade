@@ -1,0 +1,29 @@
+header
+  nav
+    .nav-wrapper
+      ul.left
+        li: a.button-collapse(data-activates="slide-out"): i.mdi-navigation-menu
+        li
+          a
+            i.mdi-action-account-circle.left
+            | Guest
+      //- a.brand-logo.left(href="#!") &#256;k&#257;&#347;a
+      ul.right
+        li: a: i.mdi-action-search
+        li: a: i.mdi-social-notifications-none
+        li: a: i.mdi-navigation-more-vert
+      ul.side-nav.fixed#slide-out
+        li: a First
+        li: a Second
+
+
+
+main
+
+
+
++editor
+
+
+script
+  $(".button-collapse").sideNav();

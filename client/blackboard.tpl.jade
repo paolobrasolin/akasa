@@ -1,0 +1,10 @@
+.blackboard(style=style)
+  if isBlank
+    p Blank!
+  if isDiagram
+    with getDiagram
+      +diagram
+  else if isSplit
+    each slates
+      +blackboard
+

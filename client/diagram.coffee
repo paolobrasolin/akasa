@@ -19,30 +19,21 @@ Template.diagram.helpers
       "top:"+@position.y*100+"%;"
   cellInDiagram: () ->
     Cells.find
-      diagramId: @content._id
-  probe: () ->
-  	console.log @
+      diagramId: @_id
 
 Template.diagram.gestures
 
   'tap .diagram': (event,template) ->
-    #targetClassList = event.target.classList.toString()
-    #point = event.center
-    #nux = point.x - $("svg").offset().left
-    #nuy = point.y - $("svg").offset().top
-    #console.log "TAP!"
-    #console.log @
-    #console.log event
-    #console.log template
     Session.set "ACTIVE_DIAGRAM", @diagramId or @_id
     Meteor.call("emptySelection", @_id)
 
 
   'doubletap svg': (event, template) ->
+    console.log event
     targetClassList = event.target.classList.toString()
     if targetClassList is "diagram"
       point = event.center
-      origin = $("#"+@_id).offset()
-      nux = point.x - origin.left
-      nuy = point.y - origin.top
+      origin = event.target
+      nux = point.x - origin.offsetLeft
+      nuy = point.y - origin.offsetTop
       Meteor.call("createCell", @_id, 0, null, null, nux, nuy)

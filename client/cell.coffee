@@ -116,12 +116,11 @@ Template.cell.gestures
   'tap .cell.tactile': () ->
     console.log @
     Meteor.call("toggleCell", @)
-  'panstart .tactile, pan .tactile, panstop .tactile': (event) ->
-    #console.log event
-    origin = $("#"+@diagramId).offset()
+  'panstart .tactile, pan .tactile, panstop .tactile': (event,template) ->
+    origin = event.target.ownerSVGElement
     point = event.center
-    relx = point.x - origin.left
-    rely = point.y - origin.top
+    relx = point.x - origin.offsetLeft
+    rely = point.y - origin.offsetTop
     Meteor.call("moveCell", @_id, relx, rely)
 ###
   'press path': () ->

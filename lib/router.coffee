@@ -73,7 +73,7 @@ Router.map () ->
 
   @route 'home',
     layoutTemplate: ''
-    path: '/'
+    path: '/web'
   ###
   @route 'diagram',
     layoutTemplate: 'editor'
@@ -90,9 +90,7 @@ Router.map () ->
 
   @route 'dashboard',
     layoutTemplate: ''
-    path: '/-/'
-    data: () ->
-      null
+    path: '/'
 
 
   @route 'diagrams',

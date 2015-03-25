@@ -5,7 +5,7 @@
  *
  * Made By MaterializeCSS.com
  */
-
+/*
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -25,10 +25,24 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
-    width: 100%;
+*/
+.parallax img {
+  background-size: cover;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+  .parallax-container  {
+    height:100%;
   }
 
+  body {
+    height:100%;
+  }  
+html {
+    height:100%;
+  }
+/*
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
@@ -53,3 +67,5 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+*/

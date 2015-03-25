@@ -1,6 +1,6 @@
-Meteor.subscribe "editableDiagrams"
-Meteor.subscribe "publicDiagrams"
-Meteor.subscribe "viewableDiagrams"
-Meteor.subscribe "showcaseDiagrams"
+Meteor.subscribe "cells"
 
-Meteor.subscribe "allCells"
+Meteor.subscribe "diagrams"
+Meteor.subscribe "blackboards"
+
+Meteor.subscribe "groups"

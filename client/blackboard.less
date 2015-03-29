@@ -1,8 +1,27 @@
 .blackboard {
   display: flex;
+  flex: 1 1 auto;
   border: solid black 1px;
+  background-color: lightgray;
+  padding: 8px;
+  margin: 8px;
+}
+
+main > .blackboard {
 }
 
 .blackboard > .blackboard {
-  flex-grow: 1;
+}
+
+.blackboard > .content {
+}
+
+
+@-webkit-keyframes tutsFade {
+  0% {
+    margin: 0px;
+  }
+  100% {
+    margin: 32px;
+  }
 }

@@ -1,18 +1,26 @@
+
+
+header, main, footer {
+  padding-left: 240px;
+}
+
+
+
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  flex: none;
+}
+main {
+  flex: auto;
+}
+
+@media only screen and (max-width : 992px) {
   header, main, footer {
-    padding-left: 240px;
+    padding-left: 0;
   }
+}
 
-  @media only screen and (max-width : 992px) {
-    header, main, footer {
-      padding-left: 0;
-    }
-  }
-
-  .div {
-    border: solid black 0px;
-  }
-
-.blackboard {
-  flex: 1 1 auto;
-  margin: 1em;
-}  

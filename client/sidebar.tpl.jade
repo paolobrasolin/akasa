@@ -1,0 +1,47 @@
+ul.side-nav.fixed#slide-out(style="overflow-y:auto;")
+
+  li.no-padding.black-text
+    ul.collapsible.white(data-collapsible="accordion")
+
+      li
+        .collapsible-header
+          i.mdi-action-account-circle
+          | User
+        ul.collapsible-body
+          li: a.modal-trigger(href="#auth") Modal!
+
+      li
+        .collapsible-header
+          i.mdi-action-group-work
+          | Workgroups
+        ul.collapsible-body
+          li: a Primo
+          li: a Secondo
+          li: a Terzo
+          li: a Quarto
+          li: a Quinto
+
+
+      li
+        .collapsible-header
+          i.mdi-file-folder
+          | Diagrams
+        ul.collapsible-body
+          li: a Primo
+          li: a Secondo
+          li: a Terzo
+          li: a Quarto
+          li: a Quinto
+      li
+        .collapsible-header
+          i.mdi-action-view-quilt
+          | Blackboards
+        ul.collapsible-body
+          li: a#newBlackboardButton
+            i.right.small.mdi-content-add
+            | Create new
+          each favouriteBlackboards
+            li: a(href="{{pathFor 'blackboard'}}") {{_id}}
+          li: a
+            i.right.small.mdi-navigation-more-horiz
+            | Show all

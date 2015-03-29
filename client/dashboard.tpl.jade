@@ -1,96 +1,19 @@
 header
   nav.deep-purple
-
     .nav-wrapper
-
-      ul.left
-        //-li: a.dropdown-button(data-activates="dropdown1"): i.mdi-navigation-more-vert
-        li: a.button-collapse(data-activates="slide-out"): i.mdi-navigation-menu
-      //- a.brand-logo.left(href="#!") &#256;k&#257;&#347;a
-      ul.right
-        li: a: i.mdi-action-view-quilt
-        li: a: i.mdi-social-notifications-none
-      .center My diagrams
-
-    ul.side-nav.fixed#slide-out(style="overflow-y:auto;")
-      li
-        a.modal-trigger(href="#auth")
-          i.mdi-action-account-circle
-          | Guest
-
-      li.no-padding.black-text
-        ul.collapsible(data-collapsible="accordion")
-
-
-          li
-            .collapsible-header
-              i.mdi-action-account-circle
-              | User profile
-            ul.collapsible-body
-              li:a.modal-trigger(href="#auth")
-                | Modal!
-
-
-
-          li
-            .collapsible-header
-              i.mdi-action-view-quilt
-              | Blackboards
-            ul.collapsible-body
-              li: a Primo
-              li: a Secondo
-              li: a Terzo
-              li: a Quarto
-              li: a Quinto
-          li
-            .collapsible-header
-              i.mdi-action-view-quilt
-              | Blackboards
-            ul.collapsible-body
-              li: a Primo
-              li: a Secondo
-              li: a Terzo
-              li: a Quarto
-              li: a Quinto
-              li: a Primo
-              li: a Secondo
-              li: a Terzo
-              li: a Quarto
-              li: a Quinto
-          li
-            .collapsible-header
-              i.mdi-action-view-quilt
-              | Blackboards
-            ul.collapsible-body
-              li: a Primo
-              li: a Secondo
-              li: a Terzo
-              li: a Quarto
-              li: a Quinto
-
-
-
-    ul.dropdown-content#dropdown1
-      li: a one
-      li: a two
-      li.divider
-      li: a three
-
+      +topbar
+      +sidebar
 
 main
+ +yield
 
-
-//-+editor
-
-
-.modal#auth
+//-.modal#auth
   .modal-content
     | Testing the modal.
 
-
 script
   | $(".button-collapse").sideNav();
-  | $(".dropdown-button").dropdown({ hover: false });
-  | $('.modal-trigger').leanModal();
+  //-| $(".dropdown-button").dropdown({ hover: false });
+  //-| $('.modal-trigger').leanModal();
   | $('.collapsible').collapsible();
 

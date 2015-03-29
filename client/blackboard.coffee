@@ -1,20 +1,18 @@
 Template.blackboard.helpers
+
+  isBlank: () ->
+    !@kind?
+  isDiagram: () ->
+    @kind is 'diagram'
+  isBlackboards: () ->
+    @kind is 'blackboards'
+
   getDiagram: () ->
     Diagrams.findOne
       _id: @diagramId
 
-  isBlank: () ->
-    @kind is 'blank'
-  isDiagram: () ->
-    @kind is 'diagram'
-  isSplit: () ->
-    @kind is 'split'
-
-  isWhole: () ->
-    @kind is 'whole'
-
-  slates: () ->
-    @slates.map (id) ->
+  getBlackboards: () ->
+    @blackboards.map (id) ->
       Blackboards.findOne
         _id: id
     ###
@@ -30,19 +28,19 @@ Template.blackboard.helpers
     s
     ###
   
-  style: () ->
-    if @splitting is 'vertical'
+  direction: () ->
+    if @direction is 'vertical'
       "flex-direction:column;"
-    else if @splitting is 'horizontal'
+    else if @direction is 'horizontal'
       "flex-direction:row;"
 
 
 Template.blackboard.gestures
-  'tap .blackboard': (event,template) ->
-    console.log "TAP!"
-    #console.log @
-    #console.log event
+  'tap main > .blackboard': (event,template) ->
+    console.log "Tapped template"+@_id
+    console.log template
     #console.log template
     #event.stopPropagation
     #Session.set "ACTIVE_DIAGRAM", @diagramId or @_id
     #Meteor.call("emptySelection", @_id)
+

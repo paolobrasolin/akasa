@@ -83,7 +83,7 @@ Router.map () ->
   ###
 
   @route 'blackboard',
-    layoutTemplate: ''
+    layoutTemplate: 'dashboard'
     path: '/blackboards/:_id'
     data: () ->
       Blackboards.findOne(@params._id)

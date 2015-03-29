@@ -98,3 +98,10 @@ Meteor.methods
       name: name or "New diagram"
       editors: [Meteor.userId()]
       viewers: []
+
+  newBlackboard: () ->
+    Blackboards.insert
+      name: "New blackboard @ "+Date.now()
+      kind: null
+      #editors: [Meteor.userId()]
+      #viewers: []
